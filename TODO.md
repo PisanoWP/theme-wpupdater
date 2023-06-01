@@ -1,5 +1,6 @@
 
 Crear una página de opciones para guardar la configuracion
+para acceder a repositorios privados
 * github_uri
 * token 
 
@@ -15,3 +16,5 @@ de un repositorio, ver cual es el mensaje:
 * Alcanzado limite de peticiones
 * Url no válida
 * etc.
+
+Añadir opción para actualizacones automáticas
