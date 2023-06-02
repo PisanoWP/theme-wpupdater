@@ -55,7 +55,7 @@ class WPTHEMENAME_Updater {
 		add_filter( 'pre_set_site_transient_update_themes', array( $this, 'pre_set_site_transient_update_themes' ), 10, 1 );
 		add_filter( 'http_request_args', array( $this, 'set_header_token' ), 10, 2 );
 		add_filter( 'upgrader_source_selection', array( $this, 'upgrader_source_selection'), 10, 4 );
-
+		
 		// add_filter( 'upgrader_post_install', array( $this, 'upgrader_post_install' ), 10, 3, 99 );
 
 	}
@@ -252,6 +252,13 @@ class WPTHEMENAME_Updater {
 	 * @return string|\WP_Error
 	 */
 	public function upgrader_source_selection( $source, $remote_source, $upgrader, $hook_extra = null ) {
+				
+		if (	!(	 isset( $hook_extra['theme'] ) 
+					&& ( $hook_extra['theme'] == $this->$this->theme_basename) )){
+			// Si no es NUESTRO tema, no hacemos nada
+			return $source;
+
+		}
 
 		global $wp_filesystem;
 

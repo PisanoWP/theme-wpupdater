@@ -1,7 +1,7 @@
 <?php 
 define('TWP_THEME_PATH', get_template_directory() );
 define('TWP_THEME_URL', get_template_directory_uri() );
-define('TPW_THEME_VERSION', '0.7.0' );
+define('TPW_THEME_VERSION', '1.0.1' );
 
 
 function tpw_setup(){
@@ -62,7 +62,7 @@ add_action( 'wp_enqueue_scripts', 'tpw_enqueue_scripts');
 require_once 'includes/class-themename-updater.php';
 
 // Comprobamos si hay versiones nuevas del tema
-function themename_check_update() {
+function themename_check_update() {	
 	if ( is_admin() ) {
 
 		$theme_name = basename( dirname(__FILE__) ) ;
